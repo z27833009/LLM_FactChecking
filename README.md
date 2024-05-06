@@ -1,4 +1,4 @@
-# Project Name
+# LLM_FactChecking
 
 ## Introduction
 This project contains multiple scripts primarily used to process data from different sources and interact with the ollama service via API.
