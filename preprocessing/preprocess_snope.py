@@ -44,12 +44,14 @@ def prepare_data(train_data, evidence_data):
     records = []
     for item in train_data:
         evidence_texts = []
+        i = 0
         for evidence_group in item['evidence']:
             for source, index in evidence_group:
                 # 获取对应的证据句子，如果存在
+                i += 1
                 if source in evidence_data and index < len(evidence_data[source]['lines']):
                     line = evidence_data[source]['lines'][index]
-                    evidence_texts.append(f"{index}: {line}")
+                    evidence_texts.append(f"{i}: {line}")
         # 只有当evidence_texts不为空时，才添加记录
         if evidence_texts:  # 确保evidence_texts不为空
             label = item['label'].lower()
@@ -81,13 +83,21 @@ df = pd.DataFrame(prepared_train_data)
 df1 = pd.DataFrame(prepared_dev_data)
 df2 = pd.DataFrame(prepared_test_data)
 
+df['label'] = df['label'].replace('refutes', 'refuted')
+df1['label'] = df1['label'].replace('refutes', 'refuted')
+df2['label'] = df2['label'].replace('refutes', 'refuted')
+# supported
+df['label'] = df['label'].replace('supports', 'supported')
+df1['label'] = df1['label'].replace('supports', 'supported')
+df2['label'] = df2['label'].replace('supports', 'supported')
+
 df['evidence'].apply(lambda x: x.replace('\t', ' '))
 df1['evidence'].apply(lambda x: x.replace('\t', ' '))
 df2['evidence'].apply(lambda x: x.replace('\t', ' '))
 # Save the DataFrame to CSV files
-df.to_csv(dir + 'prepared_train_data1.csv', sep='\t', quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
-df1.to_csv(dir + 'prepared_dev_data1.csv', sep='\t', quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
-df2.to_csv(dir + 'prepared_test_data1.csv', sep='\t', quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
+df.to_csv(dir + 'prepared_train_data2.csv', sep='\t', quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
+df1.to_csv(dir + 'prepared_dev_data2.csv', sep='\t', quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
+df2.to_csv(dir + 'prepared_test_data2.csv', sep='\t', quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
 
 
 

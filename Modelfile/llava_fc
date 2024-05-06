@@ -2,11 +2,10 @@
 # To build a new Modelfile based on this one, replace the FROM line with:
 # FROM llava:latest
 
-FROM llava 
-TEMPLATE """{{ .System }}
-USER: {{ .Prompt }}
-ASSSISTANT: """
-SYSTEM """You are a professional categorizer in fact checking and your job is to get the claim with its evidence as well as an image and categorize the claim into one of the following categories: support, refute or NEI.If you are not sure and do not have enough information, reply with 'NEI'. Answer only the categorization and nothing else. 
-"""
-PARAMETER stop "USER:"
-PARAMETER stop "ASSSISTANT:"
+FROM llava:latest
+TEMPLATE """[INST] {{ if .System }}{{ .System }} {{ end }}{{ .Prompt }} [/INST]"""
+
+SYSTEM """You are a professional classifier in fact checking, your job is to be given claims with their evidences and classify them as one of the following categories: supported, refuted, or NEI. Only if you are unsure or don't have enough info, respond with NEI. Respond only with the classification and nothing else."""
+
+PARAMETER stop "[INST]"
+PARAMETER stop "[/INST]"

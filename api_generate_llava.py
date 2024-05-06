@@ -35,6 +35,6 @@ def generate_response(prompt,images_path):
     
     
 if __name__ == "__main__":
-    test_prompt = "who is that in the picture"
-    test_img_path = "/mnt/d/Mocheg-main/Mocheg-main/data/test/images/02576-proof-03-Donald_Trump_32758233090-scaled-e1616421656771.jpg"
+    test_prompt = "who the he is and what he is doing"
+    test_img_path = "/mnt/d/Mocheg-main/Mocheg-main/data/test/images/00017-proof-06-GettyImages-1137888397.jpg"
     generate_response(test_prompt,test_img_path)

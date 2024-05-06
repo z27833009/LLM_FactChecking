@@ -38,8 +38,8 @@ df_unique = df_filtered.drop_duplicates(subset=['claim_id'])
 print(df_unique.head(5))
 print(df_unique.info())
 print(df_unique['cleaned_truthfulness'].value_counts())
-# # 打印去重后的DataFrame
-# print(df_unique.shape[0])
-# print(df_unique.head(10))
-# output_file_path = file_path + "no_duplicated.csv"
-# df_unique.to_csv(output_file_path,index=False)
+# 打印去重后的DataFrame
+print(df_unique.shape[0])
+print(df_unique.head(10))
+output_file_path = file_path + "no_duplicated.csv"
+df_unique.to_csv(output_file_path,index=False)
