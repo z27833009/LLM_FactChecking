@@ -21,23 +21,7 @@ def generate_response(prompt, images_path=None):
             # "You are a professional classifier in fact-checking. Your job is to receive claims along with their evidences, which now include both text and images, and classify them into one of the following categories: supported, refuted, or NEI (Not Enough Information). Respond with NEI only if you are unsure or lack sufficient information. Respond only with the classification and nothing else."
             
             # "You are a professional classifier in fact-checking. Your job is to receive claims along with their evidences, which now include both text and images, and classify them into one of the following categories: supported, refuted, or NEI (Not Enough Information). In cases where the image evidence contradicts the text evidence, you should prioritize the text evidence over the image. This means that the classification should be based primarily on the textual information provided. Respond with NEI only if you are unsure or lack sufficient information. Respond only with the classification and nothing else."
-        },
-        # # {
-        # #     "role": "user",
-        # #     "content": "claim: 'Hydroxychloroquine cures this 'virus. evidence: Some studies have found that hy-droxychloroquine could help alleviate symptoms associated with COVID-19, but the research is not conclusive. There is no cure or vaccine for the novel coronavirus. Health officials have not listed hy-droxychloroquine as a treatment for radiation sickness.",
-        # # },
-        # # {   "role": "assistant", "content": "refuted"},
-        # # {
-        # #     "role": "user",
-        # #     "content": "claim: A specific species of frog can live for 200 years. evidence: There is limited research on the lifespan of this frog species."
-        # # },
-        # # {   "role": "assistant", "content": "NEI"},
-        # # {
-        # #     "role": "user",
-        # #     "content": "claim: Donald Trump 'saved' the Veterans Day parade in New York City in 1995. evidence: Police estimated 500,000 people attended the largest military parade ever held in New York. Organizers, who placed the turnout at closer to a million, said the parade would not have been a success if it hadn't been for real estate developer Donald Trump, who contributed $200,000 and raised another $300,000."
-        # # },
-        # # {   "role": "assistant", "content": "supported"},
-        
+        },        
         {
             "role": "user",
             "content": """claim: Using mobile phones leads to the death of bees, threatening the global bee population.
